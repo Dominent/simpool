@@ -1,0 +1,24 @@
+.Charts {
+    padding: 30px;
+}
+
+.Charts ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    grid-column-gap: 10%;
+    grid-row-gap: 30%;
+}
+
+.Charts ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: scale(1.5);
+}

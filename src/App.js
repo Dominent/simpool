@@ -1,24 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useCallback, useEffect, useState } from 'react';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import Dashboard from './modules/dashboard/Dashboard';
+import Layout from './modules/layout/Layout';
+import ApplicationContext from './ApplicationContext';
 
 function App() {
+  const [state, setState] = useState({
+    filter: 0,
+    reloading: {}
+  });
+
+  useEffect(() => {
+    console.log(state)
+  }, [state])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApplicationContext.Provider value={[state, setState]}>
+      <Router>
+        <Layout>
+          <Switch>
+            <Route path="/">
+              <Dashboard></Dashboard>
+            </Route>
+          </Switch>
+        </Layout>
+      </Router>
+    </ApplicationContext.Provider>
   );
 }
 

@@ -1,0 +1,8 @@
+.Filter {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 10fr;
+    align-items: center;
+    grid-column-gap: 30px;
+
+    padding: 30px;
+}
